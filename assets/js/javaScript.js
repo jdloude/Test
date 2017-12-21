@@ -5,7 +5,7 @@ function liftStatus() {
 
 	let resort = "breck";
 
-	let queryURL = "https://liftie.info/?resorts=" + resort;
+	let queryURL = "https://liftie.info/api/resort/" + resort;
 
 
 	$.ajax({
