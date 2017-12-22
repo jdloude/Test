@@ -1,25 +1,27 @@
-// on click event that loads in text of clicked link from array to push to the api
-function liftStatus() {
 
-	$('.resorts').empty();
+var invocation = new XMLHttpRequest();
+var url = 'https://liftie.info/api/resort/breck';
+   
+function callOtherDomain() {
 
-	let resort = "breck";
+                if(invocation) {  
 
-	let queryURL = "https://liftie.info/api/resort/" + resort;
+                        invocation.open('GET', url, true);
 
+                        invocation.onreadystatechange = function () {
 
-	$.ajax({
+                                        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 
-        url: queryURL,
+                                         console.log(xhr.responseText);
 
-        method: "GET"
+                                        };
 
-        // when done loading the inforamtion call this function
-        }).done(function (response) {
+                        invocation.send(); 
+                        
+                        }
 
-        	console.log(response);
-        });
+                }
+                
 
 }
-
-liftStatus();
+callOtherDomain();
